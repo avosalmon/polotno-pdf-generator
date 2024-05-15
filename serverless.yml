@@ -1,0 +1,19 @@
+org: avosalmon
+app: polotno-pdf-generator
+service: polotno-pdf-generator
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  timeout: 30
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /
+          method: post
+    memorySize: 2048
+    timeout: 30
